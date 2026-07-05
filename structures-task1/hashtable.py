@@ -36,19 +36,19 @@ class hashTable:
     
 
     def search(self, id):
-        index = id % self.capacity
+        index = id % self.size
         start_index = index
         
         while self.table[index] is not None:
             if self.table[index] != "DELETED" and self.table[index].id == id:
                 return self.table[index]
-            index = (index + 1) % self.capacity
+            index = (index + 1) % self.size
             if index == start_index:
                 return None
         return None
         
     def delete(self, id):
-        index = id % self.capacity
+        index = id % self.size
         start_index = index
         
         while self.table[index] is not None:
@@ -56,7 +56,7 @@ class hashTable:
                 city = self.table[index]
                 self.table[index] = "DELETED"
                 return city
-            index = (index + 1) % self.capacity
+            index = (index + 1) % self.size
             if index == start_index:
                 return None
         return None
