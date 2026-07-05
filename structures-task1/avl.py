@@ -1,9 +1,10 @@
 class City:
-    def __init__(self,id,coord,popn): 
+    def __init__(self,id,coord,popn,distance): 
         self.id = id
         self.coord = coord
         self.popn = popn
-
+        self.distance = distance
+        
 class Node:
     def __init__(self,city: City):
         self.city = city
@@ -101,3 +102,8 @@ def deleteNode(root, id):
         return leftRotate(root)
         
     return root
+
+def search(root,id):
+    if(root == None or root.city.id == id): return root
+    if(root.city.id<id): return search(root.right,id)
+    if(root.city.id>id): return search (root.left,id)

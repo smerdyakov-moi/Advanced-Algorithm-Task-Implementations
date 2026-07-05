@@ -1,9 +1,10 @@
 #1. Defining the city's class
 class City:
-    def __init__(self,id,coord,popn): 
+    def __init__(self,id,coord,popn,distance): 
         self.id = id
         self.coord = coord
         self.popn = popn
+        self.distance = distance
 
 #Coordinates are stored in [x,y] linear array whereas id and popn are just integers
 
@@ -48,4 +49,8 @@ def deleteNode(root,id):
         
     return root
 
-root = None
+
+def search(root,id):
+    if(root == None or root.city.id == id): return root
+    if(root.city.id<id): return search(root.right,id)
+    if(root.city.id>id): return search (root.left,id)
