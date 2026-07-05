@@ -1,0 +1,17 @@
+Task 1: Advanced Data Structures (25 marks)
+Implement and compare the performance of different data structures for a route planning application
+Implementation (15 marks):
+• Implement a Binary Search Tree (BST) and an AVL Tree (self-balancing) to store city locations
+with associated data (coordinates, population, distance).
+1.
+• Implement a Min-Heap for priority queue operations (e.g. next nearest city to visit). Implement
+a Hash Table with open-addressing or chaining collision handling for fast city lookups.
+Analysis (10 marks):
+• Provide theoretical time complexity analysis (Big-O notation) for insertion, deletion, and search
+for each structure. Acknowledge the constant factor hidden by Big-O and discuss its practical
+significance.
+• Conduct empirical testing with datasets of 100, 1,000, and 10,000 nodes. Measure actual wall-
+clock time.
+• Compare actual performance with theoretical predictions using labelled graphs and tables.
+• Justify which data structure is most appropriate for each use case (frequent inserts vs frequent
+lookups vs priority access).
