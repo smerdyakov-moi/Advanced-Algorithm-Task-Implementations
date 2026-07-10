@@ -104,10 +104,7 @@ def prim(graph,start):
                 heap.insert((edge_weight,neighbor,curr))
             temp = temp.next
         
-    print("Total MST Cost: ", cost)
-    print("Edges in MST: ")
-    for u,v,w in mst_edges:
-        print(f"{u} - {v} (Weight: {w})")
+    
 
 
 g = graph(4)
