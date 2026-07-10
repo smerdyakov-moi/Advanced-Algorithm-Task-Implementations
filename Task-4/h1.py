@@ -31,6 +31,17 @@ class Graph:
         node.next = self.graph[destination]
         self.graph[destination] = node
 
+def calculate_imbalance(colors):
+    counts = defaultdict(int)
+    for c in colors:
+        counts[c] += 1
+    if not counts:
+        return 0
+    return max(counts.values()) - min(counts.values())
+
+def get_num_colors(colors):
+    return len(set(colors))
+
 #Random graph generation
 def generate_random_graph(v, edge_prob=0.1):
     g = Graph(v)
