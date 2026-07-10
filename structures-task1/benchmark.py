@@ -59,4 +59,31 @@ for i in sizes:
 
     print(f"{'BST':<12} | {i:<6} | {bst_ins:<12.6f} | {bst_sea:<12.6f} | {bst_del:<12.6f}")
 
+    
+    #B. AVL Benchmarking
+    
+    #1. Insert
+    avl_root = None
+    start = time.perf_counter()
+    for c in cities:
+        avl_root = avl.insertNode(avl_root,c)
+    avl_ins = time.perf_counter() - start #Calculates running time of insertion operation
+
+    #2. Search
+    start = time.perf_counter()
+    for id in sample_ids:
+        avl.search(avl_root,id)
+    avl_sea = time.perf_counter() - start #Calculates running time of search operations
+
+    #3. Delete
+    start = time.perf_counter()
+    for id in sample_ids:
+        avl.deleteNode(avl_root,id)
+    avl_del = time.perf_counter() - start #Calculates running time of delete operation
+
+    print(f"{'AVL':<12} | {i:<6} | {avl_ins:<12.6f} | {avl_sea:<12.6f} | {avl_del:<12.6f}")
+
+
+    
+
 

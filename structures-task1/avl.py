@@ -23,7 +23,7 @@ def getBalance(ptr): #helper function  for calculating BF of each node
 
 #Rotations helper functions for performing necessary left/right rotations
 def rightRotate (ptr):
-     print('Rotating on:' ,ptr.city.id)
+     #print('Rotating on:' ,ptr.city.id)
      x = ptr.left
      temp = x.right
      x.right = ptr
@@ -31,7 +31,7 @@ def rightRotate (ptr):
      return x
 
 def leftRotate (ptr):
-     print ('Rotating on:', ptr.city.id)
+     #print ('Rotating on:', ptr.city.id)
      x = ptr.right
      temp = x.left
      x.left = ptr
