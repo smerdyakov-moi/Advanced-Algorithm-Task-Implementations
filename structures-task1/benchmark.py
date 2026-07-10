@@ -84,6 +84,29 @@ for i in sizes:
     print(f"{'AVL':<12} | {i:<6} | {avl_ins:<12.6f} | {avl_sea:<12.6f} | {avl_del:<12.6f}")
 
 
+    #C. Min Heap Benchmarking
+    
+    #1. Insert
+    heap = minheap.minHeap()
+    start = time.perf_counter()
+    for c in cities:
+        heap.insert(c)
+    heap_ins = time.perf_counter() - start
+
+
+    #2. Delete
+    start = time.perf_counter()
+    for _ in range(50):
+        heap.delete()
+    heap_del = time.perf_counter() - start
+
+    #Min Heap doesn't have a dedicated search operation because they are built for rapid access to the abs min in the heap.
+    print(f"{'Min-Heap':<12} | {i:<6} | {heap_ins:<12.6f} | {'N/A':<12} | {heap_del:<12.6f}")
+
+
+    #D. Hash Table Benchmarking
+    
+
     
 
 
