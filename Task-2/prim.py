@@ -24,9 +24,6 @@ class graph:
         node.next = self.graph[source]
         self.graph[source] = node
 
-        node = Node(source, weight)
-        node.next = self.graph[destination]
-        self.graph[destination] = node
 
 class minHeap:
     def __init__(self):
