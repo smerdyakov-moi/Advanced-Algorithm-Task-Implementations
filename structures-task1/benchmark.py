@@ -106,7 +106,26 @@ for i in sizes:
 
     #D. Hash Table Benchmarking
     
+    ht = hashtable.hashTable(i*2) # We do this so the hash table doesn't get crowded. This is called managing
+                            #the load factor. Doubling the size of the table'll ensure plenty of open space for O(1)
+                            #insert and search operations.
+                    
+    #1. Insert
+    start = time.perf_counter()
+    for c in cities:
+        ht.insert(c)
+    ht_ins = time.perf_counter() - start
 
+    #2. Search
+    start = time.perf_counter()
+    for id in sample_ids:
+        ht.search(id)   
+    ht_sea = time.perf_counter() - start
     
+    #3. Delete
+    start = time.perf_counter()
+    for id in sample_ids:
+        ht.delete(id)
+    ht_del = time.perf_counter() - start
 
-
+    print(f"{'Hash Table':<12} | {i:<6} | {ht_ins:<12.6f} | {ht_sea:<12.6f} | {ht_del:<12.6f}")
