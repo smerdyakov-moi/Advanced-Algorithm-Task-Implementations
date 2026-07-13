@@ -20,6 +20,4 @@ def wordBreakCount(str,dict):
 string = "catsanddog"
 dictionary = ["cat", "cats", "and", "sand", "dog"]
 
-
-
 print(wordBreakCount(string,dictionary))
