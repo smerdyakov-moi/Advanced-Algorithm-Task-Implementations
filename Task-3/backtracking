@@ -1,0 +1,46 @@
+def solve_cryptarithmetic(words, result):
+    unique_chars = list(set("".join(words) + result))
+    if len(unique_chars) > 10:
+        return None
+
+    leading_chars = set(w[0] for w in words + [result])
+    char_to_digit = {}
+    used_digits = set()
+
+    def is_valid_solution():
+        sum_words = sum(int("".join(str(char_to_digit[c]) for c in w)) for w in words)
+        sum_result = int("".join(str(char_to_digit[c]) for c in result))
+        return sum_words == sum_result
+
+    def backtrack(index):
+        if index == len(unique_chars):
+            return is_valid_solution()
+
+        char = unique_chars[index]
+        for digit in range(10):
+            if digit in used_digits:
+                continue
+
+            if digit == 0 and char in leading_chars:
+                continue
+
+            char_to_digit[char] = digit
+            used_digits.add(digit)
+
+            if backtrack(index + 1):
+                return True
+
+            del char_to_digit[char]
+            used_digits.remove(digit)
+
+        return False
+
+    if backtrack(0):
+        return char_to_digit
+    return None
+
+words = ["SEND", "MORE"]
+result = "MONEY"
+print(solve_cryptarithmetic(words, result))
+
+#Verification: 9567 + 1085 = 10652 (10652 -> MONEY)

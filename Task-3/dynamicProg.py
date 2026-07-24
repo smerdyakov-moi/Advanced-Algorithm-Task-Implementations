@@ -13,7 +13,6 @@ def wordBreakCount(str,dict):
                   word = str[j:i]
                   if dp[j]>0 and word in dict:
                         dp[i]+=dp[j]
-            print(dp)
     ways  = dp[length]
     return ways
 
